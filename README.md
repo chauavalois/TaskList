@@ -1,2 +1,3 @@
-# TaskList-Answer
-Resposta para o desafio to-do-list-VX Case
+# Simple to do list in Angular
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
