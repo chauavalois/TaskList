@@ -1,36 +1,36 @@
 <div class="jumbotron">
   <div class="container">
-    <h1 class="display-3 mt-1">
-      <font style="vertical-align: inherit;">Olá!</font>
+    <h1 class="display-3 mt-5">
+      Olá!
     </h1>
-    <p>
-      <font style="vertical-align: inherit;">Seja bem vindo ao Task List, sua nova maneira de criar uma lista de
+    <p class="fonte-introducao">
+      Seja bem vindo ao Task List, sua nova maneira de criar uma lista de
         tarefas.
-        Preencha os dados abaixo e clique no botão para criar uma nova tarefa.</font>
+        Preencha os dados abaixo e clique no botão para salvar uma nova tarefa.
     </p>
-    <div class="cria-tarefa mt-4">
+    <div class="cria-tarefa mt-4  col-lg-auto">
       <div class="row bg-secondary rounded py-3">
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-lg-3 d-flex justify-content-center">
           <label class="text-light">
             Título
-            <input class="w-100" [(ngModel)]="taskNovo.title" placeholder="Título">
+            <input class="w-100" [(ngModel)]="taskNovo.title" placeholder="">
           </label>
         </div>
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-lg-3 d-flex justify-content-center">
           <label class="text-light">
             Descrição
-            <input class="w-100" [(ngModel)]="taskNovo.description" placeholder="Descrição">
+            <input class="w-100" [(ngModel)]="taskNovo.description" placeholder="">
           </label>
         </div>
-        <div class="col-3 d-flex justify-content-center">
+        <div class="col-lg-3 d-flex justify-content-center">
           <label class="text-light">
             Data e Hora
             <input class="w-100" [(ngModel)]="taskNovo.hour" type="datetime-local">
           </label>
         </div>
-        <div class="col-3 d-flex justify-content-center align-items-center">
+        <div class="col-lg-3 d-flex justify-content-center align-items-center">
           <button class="btn btn-primary btn-lg" role="button" (click)="saveTask(taskNovo)">
-            Criar nova tarefa
+            Salvar nova tarefa
           </button>
         </div>
       </div>
@@ -40,13 +40,14 @@
 <div class="container">
   <div class="lista-tarefas mt-5">
     <div class="row">
-      <p>Na tabela abaixo estarão todas as tarefas criadas e você pode editar ou
+      <h3 class="display-5 mt-1">Lista de Tarefas</h3>
+      <!-- <p class="fonte-introducao">Na tabela abaixo estarão todas as tarefas criadas e você pode editar ou
         excluir quando quiser.
-      </p>
+      </p> -->
       <table class="table table-hover h-auto">
         <thead class="p-3 mb-2 bg-secondary text-white">
           <tr>
-            <th scope="col" class="align-middle">ID</th>
+            <th scope="col" class="align-middle">#</th>
             <th scope="col" class="align-middle">Título</th>
             <th scope="col" class="align-middle">Descrição</th>
             <th scope="col" class="align-middle">Hora</th>
@@ -70,10 +71,6 @@
   </div>
 </div>
 
-
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
-  Abrir modal de demonstração
-</button> -->
 
 <!-- Modal -->
 <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -111,7 +108,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" #closeModal class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" (click)="saveTask(taskEdicao)">Salvar mudanças</button>
+        <button type="button" class="btn btn-primary" (click)="saveTask(taskEdicao)">Salvar edições</button>
       </div>
     </div>
   </div>

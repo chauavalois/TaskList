@@ -1,6 +1,6 @@
-import { AppService } from '../../app.service';
+import { AppService } from '../app.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Task } from '../../model/task.model';
+import { Task } from '../model/task.model';
 import { AppRoutingModule } from 'src/app/app.routing.module';
 
 @Component({
@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
 
   getAll() {
     this.appService.getAll().subscribe(
-      x => this.taskList = x
+      tasks => this.taskList = tasks
     );
   }
 
@@ -33,7 +33,7 @@ export class ListComponent implements OnInit {
       if (task.id) { //editar tarefa
         this.appService.update(task).subscribe({
           next: () => {
-            console.log('update with success');
+            alert('Edições salvas com sucesso');
             this.getAll();
             this.closeModal.nativeElement.click();
           },
@@ -41,14 +41,14 @@ export class ListComponent implements OnInit {
       } else { //nova tarefa
         this.appService.save(task).subscribe({
           next: () => {
-            console.log('saved with success');
+            alert('Salvo com sucesso');
             this.getAll();
             this.taskNovo = new Task();
           },
         });
       }
     } else {
-      alert("Prencha todos os campos para criar uma nova tarefa")
+      alert("Prencha todos os campos para salvar uma nova tarefa")
     }
   }
 
@@ -61,10 +61,10 @@ export class ListComponent implements OnInit {
 
 
   deleteTask(taskId: number) {
-    if (confirm('Tem certeza que deseja deletar a tarefa?')) {
+    if (confirm('Tem certeza que deseja excluir a tarefa?')) {
       this.appService.delete(taskId).subscribe({
         next: () => {
-          console.log('deleted with success');
+          alert('Excluído com sucesso');
           this.getAll();
         },
         error: err => console.log('error', err)
