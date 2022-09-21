@@ -1,7 +1,6 @@
 import { AppService } from '../app.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Task } from '../model/task.model';
-import { AppRoutingModule } from 'src/app/app.routing.module';
 
 @Component({
   selector: 'app-list',
