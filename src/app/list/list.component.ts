@@ -67,7 +67,6 @@ export class ListComponent implements OnInit {
           alert('Excluído com sucesso');
           this.getAll();
         },
-        error: err => console.log('error', err)
       });
     }
   }
