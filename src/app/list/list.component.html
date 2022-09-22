@@ -58,7 +58,7 @@
             <td>{{task.description}}</td>
             <td>{{task.hour | date:'d/MM/y H:mm' }}</td>
             <td class="d-flex justify-content-end">
-              <button (click)="funcaoParaCapturarTaskParaEditar(task)" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modalEdit">Editar</button>
+              <button (click)="CapturaTaskEditar(task)" class="btn btn-primary mr-2" data-toggle="modal" data-target="#modalEdit">Editar</button>
               <button (click)="deleteTask(task.id)" class="btn btn-danger">Excluir</button>
             </td>
           </tr>

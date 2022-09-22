@@ -18,10 +18,10 @@ export class ListComponent implements OnInit {
   public taskEdicao: Task = new Task();
 
   ngOnInit() {
-    this.getAll();
+    this.getAllTask();
   }
 
-  getAll() {
+  getAllTask() {
     this.appService.getAll().subscribe(
       tasks => this.taskList = tasks
     );
@@ -33,17 +33,23 @@ export class ListComponent implements OnInit {
         this.appService.update(task).subscribe({
           next: () => {
             alert('Edições salvas com sucesso');
-            this.getAll();
+            this.getAllTask();
             this.closeModal.nativeElement.click();
           },
+          error: () => {
+            alert('Erro ao tentar atualizar');
+          }
         });
       } else { //nova tarefa
         this.appService.save(task).subscribe({
           next: () => {
             alert('Salvo com sucesso');
-            this.getAll();
+            this.getAllTask();
             this.taskNovo = new Task();
           },
+          error: () => {
+            alert('Erro ao tentar salvar');
+          }
         });
       }
     } else {
@@ -51,7 +57,7 @@ export class ListComponent implements OnInit {
     }
   }
 
-  funcaoParaCapturarTaskParaEditar(task: Task) {
+  CapturaTaskEditar(task: Task) {
     this.taskEdicao.id = task.id;
     this.taskEdicao.title = task.title;
     this.taskEdicao.description = task.description;
@@ -64,8 +70,11 @@ export class ListComponent implements OnInit {
       this.appService.delete(taskId).subscribe({
         next: () => {
           alert('Excluído com sucesso');
-          this.getAll();
+          this.getAllTask();
         },
+        error: () => {
+          alert('Erro ao tentar deletar');
+        }
       });
     }
   }
