@@ -10,8 +10,8 @@ import { Task } from '../model/task.model';
 export class ListComponent implements OnInit {
 
   constructor(private appService: AppService) { }
-
-  @ViewChild('closeModal') closeModal: ElementRef
+  closeModal: ElementRef
+  @ViewChild('closeModal') 
 
   public taskList: Task[] = [];
   public taskNovo: Task = new Task();
@@ -37,7 +37,7 @@ export class ListComponent implements OnInit {
             this.closeModal.nativeElement.click();
           },
           error: () => {
-            alert('Erro ao tentar atualizar');
+            alert('Erro ao tentar editar');
           }
         });
       } else { //nova tarefa
@@ -73,7 +73,7 @@ export class ListComponent implements OnInit {
           this.getAllTask();
         },
         error: () => {
-          alert('Erro ao tentar deletar');
+          alert('Erro ao tentar excluir');
         }
       });
     }
