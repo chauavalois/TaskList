@@ -10,8 +10,8 @@ import { Task } from '../model/task.model';
 export class ListComponent implements OnInit {
 
   constructor(private appService: AppService) { }
-  closeModal: ElementRef
-  @ViewChild('closeModal') 
+
+  @ViewChild('closeModal') closeModal: ElementRef
 
   public taskList: Task[] = [];
   public taskNovo: Task = new Task();
